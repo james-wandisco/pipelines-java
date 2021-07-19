@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/jameshughes0212/apitest/_apis/build/status/james-wandisco.pipelines-java?branchName=master)](https://dev.azure.com/jameshughes0212/apitest/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
