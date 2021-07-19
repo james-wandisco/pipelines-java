@@ -18,6 +18,13 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+jobs:  
+- deployment: VMDeploy
+  displayName: web
+  environment:
+    name:  envir1
+    resourceType: VirtualMachine
+    tags: web
 
 
 - task: CopyFiles@2
