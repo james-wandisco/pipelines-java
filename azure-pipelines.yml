@@ -6,9 +6,6 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
-
 steps:
 - task: Maven@3
   inputs:
@@ -21,7 +18,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-    
+
 - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
