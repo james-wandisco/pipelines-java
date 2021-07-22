@@ -11,6 +11,7 @@ stages:
     jobs:
       - deployment: DeployWeb
         displayName: deploy Web App
+        dependsOn: BuildJob
         pool:
           vmImage: 'Ubuntu-16.04'
         environment: 'envir1'
@@ -42,6 +43,7 @@ stages:
           - script: echo Testing on Linux!
   - stage: Deploy
     jobs:
+
       - job: Deploy
         steps:
           - script: echo Deploying the code!
