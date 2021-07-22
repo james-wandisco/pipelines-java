@@ -6,6 +6,10 @@
 trigger:
 - master
 
+stages:
+- stage: Build
+  displayname: Build stage
+  jobs:
 - job: Build
     displayName: Build Maven Project
     steps:
