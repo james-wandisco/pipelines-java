@@ -12,9 +12,12 @@ stages:
       - deployment: DeployWeb
         displayName: deploy Web App
         dependsOn: BuildJob
-        pool:
-          vmImage: 'wandisco-ldma'
-        environment: 'envir1'
+        #pool:
+          #vmImage: 'wandisco-ldma'
+        environment:
+          name: envir1
+          resourceType: VirtualMachine
+          resourceName: wandisco-ldma
         strategy:
           runOnce:
             deploy:
