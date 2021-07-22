@@ -7,13 +7,25 @@ trigger:
 - master
 
 stages:
-- stage: Build
-  displayname: Build stage
-  jobs:
-- job: Build
-    displayName: Build Maven Project
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
+  - stage: Build
+    jobs:
+      - job: BuildJob
+        steps:
+          - script: echo Building!
+          - task: Maven@3
+              displayName: 'Maven Package'
+              inputs:
+                mavenPomFile: 'pom.xml'
+  - stage: Test
+    jobs:
+      - job: TestOnWindows
+        steps:
+          - script: echo Testing on Windows!
+      - job: TestOnLinux
+        steps:
+          - script: echo Testing on Linux!
+  - stage: Deploy
+    jobs:
+      - job: Deploy
+        steps:
+          - script: echo Deploying the code!
