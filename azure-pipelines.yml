@@ -31,9 +31,9 @@ stages:
               SourceFolder: '$(System.DefaultWorkingDirectory)'
               Contents: '**/target/*.?(war|jar)'
               #TargetFolder: $(Build.ArtifactStagingDirectory)
-              TargetFolder: '/home/HERE/'
+              TargetFolder: '/home/HERE/1/'
           #- upload: $(Build.ArtifactStagingDirectory)
-          - upload: '/home/HERE/'
+          - upload: '/home/HERE/1/'
             artifact: drop
   - stage: Test
     jobs:
