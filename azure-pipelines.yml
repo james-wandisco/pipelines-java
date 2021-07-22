@@ -18,7 +18,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-jobs:  
+
 - deployment: VMDeploy
   displayName: web
   environment:
