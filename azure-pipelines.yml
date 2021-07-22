@@ -9,12 +9,31 @@ trigger:
 stages:
   - stage: Build
     jobs:
+    - deployment: DeployWeb
+      displayName: deploy Web App
+      pool:
+        vmImage: 'Ubuntu-16.04'
+      # creates an environment if it doesn't exist
+      environment: 'envir1'
+      strategy:
+        # default deployment strategy, more coming...
+        runOnce:
+          deploy:
+            steps:
+            - script: echo my first deployment
       - job: BuildJob
         steps:
           - script: echo Building!
           - task: Maven@3
             inputs:
               mavenPomFile: 'pom.xml'
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(System.DefaultWorkingDirectory)'
+              Contents: '**/target/*.?(war|jar)'
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+          - upload: $(Build.ArtifactStagingDirectory)
+            artifact: drop
   - stage: Test
     jobs:
       - job: TestOnWindows
