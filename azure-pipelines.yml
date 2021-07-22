@@ -13,9 +13,8 @@ stages:
         steps:
           - script: echo Building!
           - task: Maven@3
-              displayName: 'Maven Package'
-              inputs:
-                mavenPomFile: 'pom.xml'
+            inputs:
+              mavenPomFile: 'pom.xml'
   - stage: Test
     jobs:
       - job: TestOnWindows
