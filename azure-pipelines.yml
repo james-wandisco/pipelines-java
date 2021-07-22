@@ -13,7 +13,7 @@ stages:
         displayName: deploy Web App
         dependsOn: BuildJob
         pool:
-          vmImage: 'Ubuntu-16.04'
+          vmImage: 'wandisco-ldma'
         environment: 'envir1'
         strategy:
           runOnce:
@@ -30,10 +30,10 @@ stages:
             inputs:
               SourceFolder: '$(System.DefaultWorkingDirectory)'
               Contents: '**/target/*.?(war|jar)'
-              #TargetFolder: $(Build.ArtifactStagingDirectory)
-              TargetFolder: '/home/HERE/1/'
-          #- upload: $(Build.ArtifactStagingDirectory)
-          - upload: '/home/HERE/1/'
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+
+          - upload: $(Build.ArtifactStagingDirectory)
+
             artifact: drop
   - stage: Test
     jobs:
